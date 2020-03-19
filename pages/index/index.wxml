@@ -1,0 +1,117 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="more" bind:touchstart="switch">
+      <image src="/assets/city.png" mode="widthFix"></image>
+    </view>
+    <view class="location">
+      {{location}}
+    </view>
+    <view class="configure" bindtap="configure">
+      <image src="/assets/more.png" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class="today">
+    <view class="temp">{{weather[0].tem}}</view>
+    <view class="weatherNow">
+      {{weather[0].wea}}
+    </view>
+  </view>
+  <view class="air">
+    <view class="condition" >
+      空气{{weather[0].air_level}}{{weather[0].air}}
+    </view>
+    <view class="future">
+      <view class="" wx:if="{{rain}}">
+        未来两小时有雨
+      </view>
+      <view wx:else>
+        未来两小时无雨
+      </view>
+    </view>
+  </view>
+  <view class="weathers">
+    <view class="weatherThree" wx:for="{{three}}" wx:key="date">
+      <view class="weatherUnit">
+        <view class="leftUnit">
+          <image src="/assets/rain.png" mode="widthFix"wx:if="{{item.wea_img=='yu'}}"></image>
+          <image src="/assets/cloudy.png" mode="widthFix" wx:elif="{{item.wea_img=='yun'}}"></image>
+          <image src="/assets/sunny.png" mode="widthFix" wx:elif="{{item.wea_img=='qing'}}"></image>
+          <image src="/assets/yin.png" mode="widthFix" wx:else="{{item.wea_img=='yin'}}"></image>
+          <view>{{item.day}}{{item.wea}}</view>
+          <view class="airQuality">
+            {{item.air_level}}
+          </view>
+        </view>
+        <view class="rightUnit" hover-class="none" hover-stop-propagation="false">
+          {{item.tem1}}/{{item.tem2}}
+        </view>
+      </view>
+    </view>
+    <view class="fifteenDays">
+      查看近15日天气>
+    </view>
+  </view>
+  <view class="hours">
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <view class="lifeTips uniContainer">
+    <view class="headLine" >
+      生活指数
+    </view>
+    <view class="tips">
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/glass.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[0].title}}:{{weather[0].index[0].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[0].desc}}
+          </view>
+        </view>
+      </view>
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/med.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[5].title}}:{{weather[0].index[5].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[5].desc}}
+          </view>
+        </view>
+      </view>
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/car.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[4].title}}:{{weather[0].index[4].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[4].desc}}
+          </view>
+        </view>
+      </view>
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/cloth.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[3].title}}:{{weather[0].index[3].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[3].desc}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

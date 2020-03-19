@@ -1,0 +1,562 @@
+/**index.wxss**/
+
+/**index.wxss**/
+.container{
+  /*background-image: linear-gradient(60deg,#23b7e5 0rpx,#23b7e5 1000rpx,#F0FFFF 2200rpx);*/
+  padding: 0;
+  color: white;
+}
+view{
+  box-sizing: border-box;
+}
+.header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding:10rpx 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+.header image{
+  width: 40rpx;
+}
+/*天气动图*/
+.weatherImg{
+  position: absolute;
+  display: inline-block;
+  width: 360rpx;
+  height: 480rpx;
+  border-radius: 16rpx;
+  top: 80rpx;right: 0;left: 0;
+  margin: 0 auto;
+}
+.sunny::before{
+  content:"";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 120rpx;
+  height: 120rpx;
+  background: #F6D963;
+  border-radius: 50%;
+  box-shadow: 0 0 40rpx #ff0;
+  z-index: 2;
+}
+.sunny::after{
+  content:"";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -90rpx 0 0 -90rpx;
+  width: 180rpx;
+  height: 180rpx;
+  background: #FFEB3B; 
+  clip-path: polygon(
+    50% 0%,
+    64.43% 25%,
+    93.3% 25%,
+    78.87% 50%,
+    93.3% 75%,
+    64.43% 75%,
+    50% 100%,
+    35.57% 75%,
+    6.7% 75%,
+    21.13% 50%,
+    6.7% 25%,
+    35.57% 25%
+  );
+  z-index: 1;
+  animation: sunScale 2s linear infinite;
+}
+@keyframes sunScale{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.pad{
+  padding: 0 20rpx;
+  width: 100%;
+  position: relative;
+}
+.today{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.today .temp{
+  font-size: 100rpx;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.tempUnit{
+  font-size: 30rpx;
+  padding-top: 20rpx;
+}
+.weatherNow{
+  font-size: 24rpx;
+}
+
+/*天气动画*/
+.weatherAnimation{
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: flex-end;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 0;
+  margin-left: -20rpx ;
+  font-size: 14px;
+}
+/*水滴*/
+.big-1 {
+  left: 20px;
+  animation: drop 0.85s linear 0.52s infinite;
+}
+.big-2 {
+  left: 60px;
+  animation: drop 0.85s linear 1.6s infinite;
+}
+.big-3 {
+  left: 100px;
+  animation: drop 0.85s linear 1.72s infinite; 
+}
+.big-4 {
+  left: 140px;
+  animation: drop 0.85s linear 1.16s infinite;
+}
+.big-5 {
+  left: 180px;
+  animation: drop 0.85s linear 1.56s infinite;
+}
+.big-6 {
+  left: 220px;
+  animation: drop 0.85s linear 1.84s infinite;
+}
+.big-7 {
+  left: 260px;
+  animation: drop 0.85s linear 1.76s infinite;
+}
+.big-8 {
+  left: 300px;
+  animation: drop 0.85s linear 1.36s infinite;
+}
+.big-9 {
+  left: 340px;
+  animation: drop 0.85s linear 0.36s infinite;
+}
+.bigRain{
+  position: absolute;
+  z-index: 20;
+  bottom: 90px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #7fc1f9;
+  animation-fill-mode: none;
+  animation-fill-mode: both;
+  transform-origin: 50% 100%;
+}
+.bigRain::after{
+  position: absolute;
+  content: "";
+  display: block;
+  top: -5px;
+  left: 2px;
+  width: 5px;
+  height: 10px;
+  background-color: #7fc1f9;
+  border-radius: 50%;
+}
+.bigRain::before{
+  position: absolute;
+  content: "";
+  display: block;
+  top: -5px;
+  left: 0px;
+  width: 5px;
+  height: 5px;
+  background-color: #7fc1f9;
+  border-radius: 3px;
+}
+@keyframes drop{
+  0% {
+    transform: translate3d(40px, -320px, 0) scaleX(1) scaleY(1) rotate(15deg);
+  }
+  85% {
+    transform: translate3d(0, 90px, 0) scaleX(1) scaleY(1) rotate(15deg);
+  }
+  100% {
+    transform: translate3d(0, 90px, 0) scaleX(3) scaleY(0) rotate(0deg);
+  }
+}
+.mediumRain{
+  opacity: 0.6;
+  width: 6px;
+  height: 6px;
+  animation-fill-mode: none;
+  animation-fill-mode: both;
+  position: absolute;
+  z-index: 20;
+  bottom: -10px;
+  border-radius: 50%;
+  background-color: #7fc1f9;
+  transform-origin: 50% 100%;
+}
+.mediumRain::after{
+  position: absolute;
+  content: "";
+  display: block;
+  top: -4px;
+  left: 2px;
+  width: 2px;
+  height: 6px;
+  background-color: #7fc1f9;
+  border-radius: 50%;
+}
+.mediumRain::before{
+  position: absolute;
+  content: "";
+  display: block;
+  top: -2px;
+  left: 1px;
+  width: 4px;
+  height: 4px;
+  background-color: #7fc1f9;
+  border-radius: 3px;
+}
+.medium-1 {
+  left: 340px;
+  animation: drop 1.5s linear 1.84s infinite;
+}
+.medium-2 {
+  left: 20px;
+  animation: drop 1.5s linear 0.12s infinite;
+}
+.medium-3 {
+  left: 60px;
+  animation: drop 1.5s linear 1.35s infinite;
+}
+.medium-4 {
+  left: 100px;
+  animation: drop 1.5s linear 0.57s infinite;
+}
+.medium-5 {
+  left: 140px;
+  animation: drop 1.5s linear 1.82s infinite;
+}
+.medium-6 {
+  left: 180px;
+  animation: drop 1.5s linear 1s infinite;
+}
+.medium-7 {
+  left: 220px;
+  animation: drop 1.5s linear 0.59s infinite;
+}
+.medium-8 {
+  left: 260px;
+  animation: drop 1.5s linear 1.44s infinite;
+}
+.medium-9 {
+  left: 300px;
+  animation: drop 1.5s linear 0.79s infinite;
+}
+.smallRain{
+  opacity: 0.3;
+  width: 4px;
+  height: 4px;
+  animation-fill-mode: none;
+  animation-fill-mode: both;
+  position: absolute;
+  z-index: 20;
+  bottom: -10px;
+  border-radius: 50%;
+  background-color: #7fc1f9;
+  transform-origin: 50% 100%;
+}
+.smallRain::after{
+  position: absolute;
+  content: "";
+  display: block;
+  top: -3px;
+  left: 1px;
+  width: 2px;
+  height: 4px;
+  background-color: #7fc1f9;
+  border-radius: 50%;
+}
+.smallRain::before{
+  position: absolute;
+  content: "";
+  display: block;
+  top: -2px;
+  left: 1px;
+  width: 2px;
+  height: 2px;
+  background-color: #7fc1f9;
+  border-radius: 3px;
+}
+.small-1 {
+  left: 340px;
+  animation: drop 2s linear 1.4s infinite;
+}
+.small-2 {
+  left: 20px;
+  animation: drop 2s linear 0.2s infinite;
+}
+.small-3 {
+  left: 60px;
+  animation: drop 2s linear 1.5s infinite;
+}
+.small-4 {
+  left: 100px;
+  animation: drop 2s linear 0.7s infinite;
+}
+.small-5 {
+  left: 140px;
+  animation: drop 2s linear 1.2s infinite;
+}
+.small-6 {
+  left: 180px;
+  animation: drop 2s linear 0.1s infinite;
+}
+.small-7 {
+  left: 220px;
+  animation: drop 2s linear 0.9s infinite;
+}
+.small-8 {
+  left: 260px;
+  animation: drop 2s linear 0.44s infinite;
+}
+.small-9 {
+  left: 300px;
+  animation: drop 2s linear 0.29s infinite;
+}
+/*空气*/
+.air{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 400rpx;
+  font-size: 26rpx;
+  padding: 0 60rpx;
+  height: 60rpx;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.air image{
+  width: 24rpx;
+  margin-right: 20rpx;
+}
+.condition{
+  display: flex;
+  align-items: center;
+}
+/*乌云样式*/
+.weatherCloudy{
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  padding: 0 -20rpx;
+  margin-left: -20rpx;
+}
+.cloudy{
+  background: #b7bbc6;
+  position: absolute;
+  left: -200rpx;
+  margin-left: -60px;
+  border-radius: 50%;
+  box-shadow: #b7bbc6 64px -15px 0 -5px,
+  #b7bbc6 25px -25px,
+  #b7bbc6 30px 10px,
+  #b7bbc6 60px 15px 0 -10px,
+  #b7bbc6 85px 5px 0 -5px;
+}
+.c1{
+  width: 50px;
+  height: 50px;
+  top: 100px;
+  animation: storm 25s linear infinite;
+}
+.c2{
+  width: 60px;
+  height: 60px;
+  top: 68px;
+  animation: storm 50s ease 2s infinite;
+}
+.c3{
+  width: 58px;
+  height: 48px;
+  top: 57px;
+  animation: storm 12s ease-in-out 8s infinite;
+}
+.c4{
+  width: 80px;
+  height: 80px;
+  top: 128px;
+  animation: storm 20s ease-out s infinite;
+}
+@keyframes storm {
+  from{
+      left: -200rpx;
+  }
+  to{
+      left: calc(100% + 200rpx);
+  }
+}
+/*近三天*/
+.uniContainer{
+  border-radius: 8rpx;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 20rpx 0;
+  color: whtie;
+}
+.weathers{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.weatherUnit{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 28rpx;
+  height: 80rpx;
+  align-items: flex-end;
+  padding: 0 20rpx;
+}
+.leftUnit image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.leftUnit{
+  display: flex;
+  align-items: center;
+}
+.airQuality{
+  border: 1px solid cyan;
+  border-radius: 8rpx;
+  padding: 0 10rpx;
+  font-size: 20rpx;
+  margin-left: 6rpx;
+  line-height: 24rpx;
+  height: 24rpx;
+}
+.fifteenDays{
+  width: 100%;
+  text-align: center;
+  font-size: 26rpx;
+  margin:0 auto;
+  margin-top: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+/*逐小时预报*/
+.hideDetail{
+  height: 0;
+  overflow: hidden;
+}
+.todayDetail{
+  width: 100%;
+}
+.detailItem{
+  width: 100rpx;
+  height: 200rpx;
+  background: red;
+}
+.detailHead{
+  font-size: 26rpx;
+  text-align: center;
+}
+.detailContent{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.detailContent view:first-child{
+  height: 100%;
+  width: 200%;
+  display: inline-block;
+}
+.detailContainer{
+  width: 100%;
+  height: 200rpx;
+  white-space: nowrap;
+}
+.hours{
+  position: relative;
+  width: 100%;
+  height: 500rpx;
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+.weatherContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top:40rpx;
+}
+.picker-pos {
+  margin-top: -130rpx;
+  margin-left: 150rpx;
+  color: blueviolet;
+}
+
+/*建议*/
+.lifeTips{
+  width: 100%;
+  padding:40rpx 20rpx;
+}
+.lifeTips .headLine{
+  height:50rpx;
+}
+.tips{
+  width: 100%;
+}
+.tipUnit{
+  display: flex;
+  font-size: 20rpx;
+  padding: 14rpx 0;
+}
+.tipUnit .tipImage{
+  border:1px solid white;
+  border-radius: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tipUnit image{
+  width: 40rpx;
+}
+.tipContent{
+  margin-left: 40rpx;
+  height: 80rpx;
+}
+.tipName{
+  line-height: 36rpx;
+}
+.tipDesc{
+  font-size: 26rpx;
+}

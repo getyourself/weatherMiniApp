@@ -1,0 +1,57 @@
+<!--pages/city/city.wxml-->
+<view class="cityUI {{weather}}">
+    <view class="header">
+        城市管理
+    </view>
+    <view class="chooseCity">
+        <form bindsubmit="searchCity">
+            <view class="searchBar">
+                <image class="" src="/assets/search.png" mode="widthFix"></image>
+                <input 
+                    type="text" 
+                    placeholder="输入城市名称" 
+                    placeholder-style="color:white;font-size:26rpx" 
+                    name="city"
+                    bindconfirm="searchCity"
+                />
+                <button type="reset" form-type="reset" size="mini">
+                    <view class="cha">   
+                    </view>
+                </button> 
+            </view>
+        </form>
+    </view>
+    <view class="hotCity">
+        <view class="headline">
+            热门城市
+        </view>
+        <view class="choiceContainer"  >
+            <view class="choiceUnit {{isChoosed[index]&&'choosed'}}" 
+            wx:for="{{hotCity}}" 
+            wx:key="index"
+            data-city='{{item}}'
+            bind:tap="useNewCity"
+            >
+                {{item}}
+            </view>
+        </view>
+    </view>
+    <view class="chosenCity">
+        <view class="chosenUnit">
+            <view class="left">
+                <image class="" src="/assets/rain.png" mode="widthFix" lazy-load="false"></image>
+                <view class="cityWeather" hover-class="none" hover-stop-propagation="false">
+                    <view class="cityName" hover-class="none" hover-stop-propagation="false">
+                        杭州市
+                    </view>
+                    <view class="cityAir" hover-class="none" hover-stop-propagation="false">
+                        空气优 23°/10°
+                    </view>
+                </view>
+            </view>
+            <view class="right">
+                17°
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,21 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+.yin{
+  background: #191970
+}
+.qing{
+  background: #23b7e5;
+}
+.yun{
+  background:  	#5F9EA0;
+}
+.yu,.lei{
+  background: #19363f
+}

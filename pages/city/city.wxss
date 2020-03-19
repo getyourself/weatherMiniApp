@@ -1,0 +1,135 @@
+/* pages/city/city.wxss */
+.cityUI{
+    color: white;
+    width: 100%;
+    height: 100vh;
+}
+.header{
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+}
+.chooseCity{
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 18rpx;
+    display: flex;
+    background: rgba(255, 255, 255, 0.2);
+}
+.chooseCity button{
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    margin-left: 200rpx;
+}
+.chooseCity button::after{
+   content: none;
+}
+.chooseCity form{
+    width: 100%;
+}
+.searchBar{
+    display: flex;
+    align-items: center;
+    padding: 10rpx;
+    font-size: 28rpx;
+    width: 100%;
+}
+.searchBar image{
+   width: 56rpx; 
+}
+.cha{
+	width: 30rpx;
+	height: 30rpx;
+    position: relative; 
+    top: 0;right: 0;
+    bottom: 0;left: 0;
+}
+.cha::before,
+.cha::after{
+  content: "";
+  position: absolute;  /*方便进行定位*/
+  height: 30rpx;
+  width: 3rpx;
+  top: 2rpx;
+  right: 15rpx;  
+    background: white;
+}
+.cha::before{
+  transform: rotate(45deg);  /*进行旋转*/
+}
+.cha::after{
+  transform: rotate(-45deg);
+}
+
+/*热门城市*/
+.hotCity{
+    width: 84%;
+    margin: 0 auto;
+}
+.headline{
+    font-size: 20rpx;
+    color: rgba(255, 255, 255);
+    margin-top: 40rpx;
+    margin-bottom: 10rpx;
+    text-align: left;
+    width: 100%;
+}
+.choiceContainer{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.choiceUnit{
+    border-radius: 18rpx;
+    height: 50rpx;
+    width: 100rpx;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 22rpx;
+    line-height: 50rpx;
+    text-align: center;
+    margin-top: 10rpx;
+    margin-right: 10rpx;
+}
+/*选中的城市*/
+.choosed{
+    color: aqua!important;
+}
+/*选中城市简讯*/
+.chosenCity{
+    margin-top: 40rpx;
+}
+.chosenUnit{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    align-items: center;
+}
+.left{
+    width: 400rpx;
+    display: flex;
+    align-items: center;
+}
+.left image{
+    width: 80rpx;
+    margin-right: 10rpx;
+}
+.cityWeather{
+    width: 200rpx;
+}
+.cityAir{
+    font-size: 24rpx;
+    color: silver;
+}
+.right{
+    font-size: 50rpx;
+    color: silver;
+    line-height: 50rpx;
+}

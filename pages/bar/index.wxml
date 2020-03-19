@@ -1,0 +1,179 @@
+<!--index.wxml-->
+<!--index.wxml-->
+<view class="container {{weather[0].wea_img}}">
+  <view class="header">
+    <view class="more" bind:touchstart="switch">
+      <image src="/assets/city.png" mode="widthFix"></image>
+    </view>
+    <view class="location">
+      {{location}}
+    </view>
+    <view class="configure" bindtap="configure">
+      <image src="/assets/more.png" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class="pad">
+    <view class="weatherAnimation" wx:if="{{weather[0].wea_img=='yu'||weather[0].wea_img=='lei'}}">
+      <view class="big-1 bigRain"></view>
+      <view class="big-2 bigRain"></view>
+      <view class="big-3 bigRain"></view>
+      <view class="big-4 bigRain"></view>
+      <view class="big-5 bigRain"></view>
+      <view class="big-6 bigRain"></view>
+      <view class="big-7 bigRain"></view>
+      <view class="big-8 bigRain"></view>
+      <view class="big-9 bigRain"></view>
+      <view class="medium-1 mediumRain"></view>
+      <view class="medium-2 mediumRain"></view>
+      <view class="medium-3 mediumRain"></view>
+      <view class="medium-4 mediumRain"></view>
+      <view class="medium-5 mediumRain"></view>
+      <view class="medium-6 mediumRain"></view>
+      <view class="medium-7 mediumRain"></view>
+      <view class="medium-8 mediumRain"></view>
+      <view class="medium-9 mediumRain"></view>
+      <view class="small-1 smallRain"></view>
+      <view class="small-2 smallRain"></view>
+      <view class="small-3 smallRain"></view>
+      <view class="small-4 smallRain"></view>
+      <view class="small-5 smallRain"></view>
+      <view class="small-6 smallRain"></view>
+      <view class="small-7 smallRain"></view>
+      <view class="small-8 smallRain"></view>
+      <view class="small-9 smallRain"></view>
+    </view>
+    <view class="weatherImg sunny" wx:elif="{{weather[0].wea_img=='qing'}}"></view>
+    <view class="weatherCloudy" wx:elif="{{weather[0].wea_img=='yun'}}">
+        <view class="cloudy c1"></view>
+        <view class="cloudy c2"></view>
+        <view class="cloudy c3"></view>
+        <view class="cloudy c4"></view>
+    </view>
+    <view class="today">
+      <view class="temp">
+        <view class="tempNumber">
+          {{temperature}}
+        </view>
+        <view class="tempUnit">
+          ℃
+        </view>
+      </view>
+      <view class="weatherNow">
+        {{weather[0].wea}}
+      </view>
+    </view>
+    <view class="air">
+      <view class="condition" >
+        <image src="/assets/leaf.png" mode="widthFix"></image>
+        <view class="">
+          空气{{weather[0].air_level}} {{weather[0].air}}
+        </view>
+      </view>
+      <view class="condition">
+        <image src="/assets/drop.png" mode="widthFix"></image>
+        <view class="">
+          {{weatherInShortTerm}}
+        </view>
+      </view>
+    </view>
+    <view class="weathers uniContainer">
+      <view class="weatherThree" wx:for="{{three}}" wx:key="date">
+        <view class="weatherUnit">
+          <view class="leftUnit">
+            <image src="/assets/rain.png" mode="widthFix"wx:if="{{item.wea_img=='yu'}}"></image>
+            <image src="/assets/cloudy.png" mode="widthFix" wx:elif="{{item.wea_img=='yun'}}"></image>
+            <image src="/assets/sunny.png" mode="widthFix" wx:elif="{{item.wea_img=='qing'}}"></image>
+            <image src="/assets/yin.png" mode="widthFix" wx:else="{{item.wea_img=='yin'}}"></image>
+            <view>{{item.day}}{{item.wea}}</view>
+            <view class="airQuality" wx:if="{{item.air_level}}">
+              {{item.air_level}}
+            </view>
+          </view>
+          <view class="rightUnit" hover-class="none" hover-stop-propagation="false">
+            {{item.tem1}}/{{item.tem2}}
+          </view>
+        </view>
+      </view>
+      <view class="todayDetail {{detailed && 'hideDetail'}}">
+        <view class="detailHead">
+          
+        </view>
+        <view class="detailContainer">
+          <scroll-view class="detailContent" scroll-x="true"
+            scroll-with-animation="true" scroll-left="0"
+          >
+            <view class="">
+              <ec-canvas wx:if="{{ec2}}" id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ec2}}"></ec-canvas>
+            </view>
+            <view class=""></view>
+          </scroll-view>
+        </view>
+      </view>
+  </view>
+  <view class="hours uniContainer">
+    <view class="weatherContainer">
+      <ec-canvas wx:if="{{ec}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec}}"></ec-canvas>
+    </view>
+  </view>
+  <view class="lifeTips uniContainer">
+    <view class="headLine" >
+      生活指数
+    </view>
+    <view class="tips">
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/glass.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[0].title}} : {{weather[0].index[0].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[0].desc}}
+          </view>
+        </view>
+      </view>
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/med.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[5].title}} : {{weather[0].index[5].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[5].desc}}
+          </view>
+        </view>
+      </view>
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/car.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[4].title}} : {{weather[0].index[4].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[4].desc}}
+          </view>
+        </view>
+      </view>
+      <view class="tipUnit">
+        <view class="tipImage" hover-class="none" hover-stop-propagation="false">
+          <image class="" src="/assets/cloth.png" mode="widthFix"></image>
+        </view>
+        <view class="tipContent">
+          <view class="tipName">
+            {{weather[0].index[3].title}} : {{weather[0].index[3].level}}
+          </view>
+          <view class="tipDesc">
+            {{weather[0].index[3].desc}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+</view>
+
