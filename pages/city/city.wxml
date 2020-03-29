@@ -37,20 +37,23 @@
         </view>
     </view>
     <view class="chosenCity">
-        <view class="chosenUnit">
+        <view class="chosenUnit" wx:for="{{cityWeather}}" wx:key="cityName">
             <view class="left">
-                <image class="" src="/assets/rain.png" mode="widthFix" lazy-load="false"></image>
+                <image class="" src="/assets/rain.png" mode="widthFix" wx:if="{{item.cityData.wea_img=='yu'||item.cityData.wea_img=='lei'}}"></image>
+                <image class="" src="/assets/cloudy.png" mode="widthFix" wx:elif="{{item.cityData.wea_img=='yun'}}"></image>
+                <image class="" src="/assets/sunny.png" mode="widthFix" wx:elif="{{item.cityData.wea_img=='qing'}}"></image>
+                <image class="" src="/assets/yin.png" mode="widthFix" wx:elif="{{item.cityData.wea_img=='yin'}}"></image>
                 <view class="cityWeather" hover-class="none" hover-stop-propagation="false">
                     <view class="cityName" hover-class="none" hover-stop-propagation="false">
-                        杭州市
+                        {{item.cityName}}
                     </view>
                     <view class="cityAir" hover-class="none" hover-stop-propagation="false">
-                        空气优 23°/10°
+                        空气{{item.cityData.air_level}} {{item.cityData.tem1}}/{{item.cityData.tem2}}
                     </view>
                 </view>
             </view>
             <view class="right">
-                17°
+                {{item.cityData.tem}}
             </view>
         </view>
     </view>

@@ -8,7 +8,7 @@ Page({
    */
   data: {
     cities:[],hotCity:['北京','上海','广州','深圳','珠海',"佛山",'南京',"苏州",'厦门','南宁','成都','长沙',"福州",'杭州','武汉',"青岛",'西安','太原','石家庄','沈阳','重庆','天津','贵州','温州','郑州'],
-    isChoosed:[]
+    isChoosed:[],cityWeather:[]
   },
   searchCity(e){
     var newList = app.globalData.cities;
@@ -29,7 +29,6 @@ Page({
     console.log(app,this.data)
   },
   useNewCity(e){
-    console.log(e.currentTarget.dataset.city)
     if(!app.globalData.cities.includes(e.currentTarget.dataset.city)){
       app.globalData.cities.unshift(e.currentTarget.dataset.city)
     }
@@ -45,11 +44,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     const eventChannel = this.getOpenerEventChannel()
-    //天气页面传送数据
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
-      console.log(data)
+      if(!app.globalData.cityWeather.some((ele)=>{
+        return ele.cityName == data.cityName
+      })){
+          app.globalData.cityWeather.unshift(data)  
+      }
+      that.setData({
+        cityWeather:app.globalData.cityWeather
+      })
     })
+    console.log(that.data.cityWeather)
     this.setData({
       isChoosed:this.data.hotCity.map((ele,index)=>{
         if(app.globalData.cities.includes(ele)){
@@ -59,7 +66,8 @@ Page({
         }
       }),
       weather:options.style,
-      cities:app.globalData.cities
+      cities:app.globalData.cities,
+      cityWeather:that.data.cityWeather
     })
     //同步样式
     var weatherStyle = {yun:'#5F9EA0',yu:'#19363f',qing:'#23b7e5',yin:'#191970',lei:'#19363f'}

@@ -183,8 +183,13 @@ Page({
     weatherInShortTerm:""
   },
   switch(){
+    var that = this;
     wx.navigateTo({
-      url: '/pages/city/city?style='+this.data.weather[0].wea_img
+      url: '/pages/city/city?style='+this.data.weather[0].wea_img,
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {cityData:that.data.weather[0],cityName:that.data.location})
+      }
     })
   },
   configure(){

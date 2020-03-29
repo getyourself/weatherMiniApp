@@ -2,7 +2,7 @@
 .cityUI{
     color: white;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 .header{
     width: 100%;
@@ -108,6 +108,7 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
+    padding: 10rpx 0;
     margin: 0 auto;
     box-sizing: border-box;
     align-items: center;
@@ -126,10 +127,11 @@
 }
 .cityAir{
     font-size: 24rpx;
-    color: silver;
+    color:#DCDCDC;
+    width: 300rpx;
 }
 .right{
     font-size: 50rpx;
-    color: silver;
+    color: #DCDCDC;
     line-height: 50rpx;
 }

@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    cities:[]
+    cities:[],
+    cityWeather:[]
   }
 })

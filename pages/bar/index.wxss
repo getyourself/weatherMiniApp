@@ -107,60 +107,60 @@ view{
 /*天气动画*/
 .weatherAnimation{
   position: absolute;
-  border-radius: 5px;
+  border-radius: 10rpx;
   width: 100%;
-  height: 320px;
+  height: 644rpx;
   display: flex;
   align-items: flex-end;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   z-index: 0;
   margin-left: -20rpx ;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 /*水滴*/
 .big-1 {
-  left: 20px;
+  left: 40rpx;
   animation: drop 0.85s linear 0.52s infinite;
 }
 .big-2 {
-  left: 60px;
+  left: 240rpx;
   animation: drop 0.85s linear 1.6s infinite;
 }
 .big-3 {
-  left: 100px;
+  left: 200rpx;
   animation: drop 0.85s linear 1.72s infinite; 
 }
 .big-4 {
-  left: 140px;
+  left: 280rpx;
   animation: drop 0.85s linear 1.16s infinite;
 }
 .big-5 {
-  left: 180px;
+  left: 360rpx;
   animation: drop 0.85s linear 1.56s infinite;
 }
 .big-6 {
-  left: 220px;
+  left: 440rpx;
   animation: drop 0.85s linear 1.84s infinite;
 }
 .big-7 {
-  left: 260px;
+  left: 520rpx;
   animation: drop 0.85s linear 1.76s infinite;
 }
 .big-8 {
-  left: 300px;
+  left: 600rpx;
   animation: drop 0.85s linear 1.36s infinite;
 }
 .big-9 {
-  left: 340px;
+  left: 680rpx;
   animation: drop 0.85s linear 0.36s infinite;
 }
 .bigRain{
   position: absolute;
   z-index: 20;
-  bottom: 90px;
-  width: 10px;
-  height: 10px;
+  bottom: 180rpx;
+  width: 20rpx;
+  height: 20rpx;
   border-radius: 50%;
   background-color: #7fc1f9;
   animation-fill-mode: none;
@@ -171,10 +171,10 @@ view{
   position: absolute;
   content: "";
   display: block;
-  top: -5px;
-  left: 2px;
-  width: 5px;
-  height: 10px;
+  top: -10rpx;
+  left: 4rpx;
+  width: 10rpx;
+  height: 20rpx;
   background-color: #7fc1f9;
   border-radius: 50%;
 }
@@ -182,33 +182,33 @@ view{
   position: absolute;
   content: "";
   display: block;
-  top: -5px;
-  left: 0px;
-  width: 5px;
-  height: 5px;
+  top: -10rpx;
+  left: 0rpx;
+  width: 10rpx;
+  height: 10rpx;
   background-color: #7fc1f9;
-  border-radius: 3px;
+  border-radius: 6rpx;
 }
 @keyframes drop{
   0% {
-    transform: translate3d(40px, -320px, 0) scaleX(1) scaleY(1) rotate(15deg);
+    transform: translate3d(80rpx, -640rpx, 0) scaleX(1) scaleY(1) rotate(15deg);
   }
   85% {
-    transform: translate3d(0, 90px, 0) scaleX(1) scaleY(1) rotate(15deg);
+    transform: translate3d(0, 180rpx, 0) scaleX(1) scaleY(1) rotate(15deg);
   }
   100% {
-    transform: translate3d(0, 90px, 0) scaleX(3) scaleY(0) rotate(0deg);
+    transform: translate3d(0, 180rpx, 0) scaleX(3) scaleY(0) rotate(0deg);
   }
 }
 .mediumRain{
   opacity: 0.6;
-  width: 6px;
-  height: 6px;
+  width: 12rpx;
+  height: 12rpx;
   animation-fill-mode: none;
   animation-fill-mode: both;
   position: absolute;
   z-index: 20;
-  bottom: -10px;
+  bottom: -20rpx;
   border-radius: 50%;
   background-color: #7fc1f9;
   transform-origin: 50% 100%;
@@ -217,10 +217,10 @@ view{
   position: absolute;
   content: "";
   display: block;
-  top: -4px;
-  left: 2px;
-  width: 2px;
-  height: 6px;
+  top: -8rpx;
+  left: 4rpx;
+  width: 4rpx;
+  height: 12rpx;
   background-color: #7fc1f9;
   border-radius: 50%;
 }
@@ -228,58 +228,58 @@ view{
   position: absolute;
   content: "";
   display: block;
-  top: -2px;
-  left: 1px;
-  width: 4px;
-  height: 4px;
+  top: -4rpx;
+  left: 2rpx;
+  width: 8rpx;
+  height: 8rpx;
   background-color: #7fc1f9;
-  border-radius: 3px;
+  border-radius: 6rpx;
 }
 .medium-1 {
-  left: 340px;
+  left: 680rpx;
   animation: drop 1.5s linear 1.84s infinite;
 }
 .medium-2 {
-  left: 20px;
+  left: 40rpx;
   animation: drop 1.5s linear 0.12s infinite;
 }
 .medium-3 {
-  left: 60px;
+  left: 120rpx;
   animation: drop 1.5s linear 1.35s infinite;
 }
 .medium-4 {
-  left: 100px;
+  left: 200rpx;
   animation: drop 1.5s linear 0.57s infinite;
 }
 .medium-5 {
-  left: 140px;
+  left: 280rpx;
   animation: drop 1.5s linear 1.82s infinite;
 }
 .medium-6 {
-  left: 180px;
+  left: 360rpx;
   animation: drop 1.5s linear 1s infinite;
 }
 .medium-7 {
-  left: 220px;
+  left: 440rpx;
   animation: drop 1.5s linear 0.59s infinite;
 }
 .medium-8 {
-  left: 260px;
+  left: 520rpx;
   animation: drop 1.5s linear 1.44s infinite;
 }
 .medium-9 {
-  left: 300px;
+  left: 600rpx;
   animation: drop 1.5s linear 0.79s infinite;
 }
 .smallRain{
   opacity: 0.3;
-  width: 4px;
-  height: 4px;
+  width: 8rpx;
+  height: 8rpx;
   animation-fill-mode: none;
   animation-fill-mode: both;
   position: absolute;
   z-index: 20;
-  bottom: -10px;
+  bottom: -20rpx;
   border-radius: 50%;
   background-color: #7fc1f9;
   transform-origin: 50% 100%;
@@ -288,10 +288,10 @@ view{
   position: absolute;
   content: "";
   display: block;
-  top: -3px;
-  left: 1px;
-  width: 2px;
-  height: 4px;
+  top: -6rpx;
+  left: 2rpx;
+  width: 4rpx;
+  height: 8rpx;
   background-color: #7fc1f9;
   border-radius: 50%;
 }
@@ -299,47 +299,47 @@ view{
   position: absolute;
   content: "";
   display: block;
-  top: -2px;
-  left: 1px;
-  width: 2px;
-  height: 2px;
+  top: -4rpx;
+  left: 2rpx;
+  width: 4rpx;
+  height: 4rpx;
   background-color: #7fc1f9;
-  border-radius: 3px;
+  border-radius: 6rpx;
 }
 .small-1 {
-  left: 340px;
+  left: 680rpx;
   animation: drop 2s linear 1.4s infinite;
 }
 .small-2 {
-  left: 20px;
+  left: 40rpx;
   animation: drop 2s linear 0.2s infinite;
 }
 .small-3 {
-  left: 60px;
+  left: 120rpx;
   animation: drop 2s linear 1.5s infinite;
 }
 .small-4 {
-  left: 100px;
+  left: 200rpx;
   animation: drop 2s linear 0.7s infinite;
 }
 .small-5 {
-  left: 140px;
+  left: 280rpx;
   animation: drop 2s linear 1.2s infinite;
 }
 .small-6 {
-  left: 180px;
+  left: 360rpx;
   animation: drop 2s linear 0.1s infinite;
 }
 .small-7 {
-  left: 220px;
+  left: 440rpx;
   animation: drop 2s linear 0.9s infinite;
 }
 .small-8 {
-  left: 260px;
+  left: 520rpx;
   animation: drop 2s linear 0.44s infinite;
 }
 .small-9 {
-  left: 300px;
+  left: 600rpx;
   animation: drop 2s linear 0.29s infinite;
 }
 /*空气*/
@@ -367,7 +367,7 @@ view{
 .weatherCloudy{
   position: absolute;
   width: 100%;
-  height: 200px;
+  height: 400rpx;
   padding: 0 -20rpx;
   margin-left: -20rpx;
 }
@@ -375,36 +375,36 @@ view{
   background: #b7bbc6;
   position: absolute;
   left: -200rpx;
-  margin-left: -60px;
+  margin-left: -120rpx;
   border-radius: 50%;
-  box-shadow: #b7bbc6 64px -15px 0 -5px,
-  #b7bbc6 25px -25px,
-  #b7bbc6 30px 10px,
-  #b7bbc6 60px 15px 0 -10px,
-  #b7bbc6 85px 5px 0 -5px;
+  box-shadow: #b7bbc6 128rpx -30rpx 0 -10rpx,
+  #b7bbc6 50rpx -50rpx,
+  #b7bbc6 60rpx 20rpx,
+  #b7bbc6 120rpx 30rpx 0 -20rpx,
+  #b7bbc6 170rpx 10rpx 0 -10rpx;
 }
 .c1{
-  width: 50px;
-  height: 50px;
-  top: 100px;
+  width: 100rpx;
+  height: 100rpx;
+  top: 200rpx;
   animation: storm 25s linear infinite;
 }
 .c2{
-  width: 60px;
-  height: 60px;
-  top: 68px;
+  width: 120rpx;
+  height: 120rpx;
+  top: 136rpx;
   animation: storm 50s ease 2s infinite;
 }
 .c3{
-  width: 58px;
-  height: 48px;
-  top: 57px;
+  width: 116rpx;
+  height: 96rpx;
+  top: 114rpx;
   animation: storm 12s ease-in-out 8s infinite;
 }
 .c4{
-  width: 80px;
-  height: 80px;
-  top: 128px;
+  width: 160rpx;
+  height: 160rpx;
+  top: 256rpx;
   animation: storm 20s ease-out s infinite;
 }
 @keyframes storm {
@@ -486,7 +486,7 @@ view{
 }
 .detailContent view:first-child{
   height: 100%;
-  width: 200%;
+  width: 100%;
   display: inline-block;
 }
 .detailContainer{
