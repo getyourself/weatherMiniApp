@@ -2,7 +2,7 @@ import * as echarts from '../../ec-canvas/echarts';
 
 let chart = null;let chart2 = null;
 var app =  getApp();
-var qurl = 'http://www.tianqiapi.com/api?version=v1&appid=23035354&appsecret=8YvlPNrz&city='+ wx.getStorageSync("cityNow")
+var qurl = 'http://www.tianqiapi.com/api?version=v1&appid=23035354&appsecret=PGgTiHl1&city='+ wx.getStorageSync("cityNow")
 function setOption(chart, xdata, ydata) {
   var option = {
     title: {
@@ -218,12 +218,13 @@ Page({
   getOption: function () {        //这一步其实就要给图表加上数据
     var _this = this;
     wx.request({
-        url: 'http://www.tianqiapi.com/api?version=v1&appid=23035354&appsecret=8YvlPNrz&city='+ wx.getStorageSync("cityNow"),    //接口地址
+        url: 'http://www.tianqiapi.com/api?version=v1&appid=73667599&appsecret=PGgTiHl1&city='+ wx.getStorageSync("cityNow"),    //接口地址
         method: 'POST',
         header: {
             "Content-Type": "application/json"
         },
         success:function(res){
+          console.log(res)
             _this.initChart(res.data.data,res.data.data);
             _this.setData({
               weather:res.data.data,
@@ -243,17 +244,25 @@ Page({
               frontColor: '#ffffff',
               backgroundColor: weatherStyle[res.data.data[0].wea_img]
             }); 
-            console.log(res)
+            console.log(app.globalData)
+            if(!app.globalData.cities.includes(res.data.city)){
+              app.globalData.cities.push(res.data.city)
+            }
+            wx.hideLoading();
         }
     })  
   },
   onLoad() {
     this.eComponent = this.selectComponent('#mychart-dom-bar');
     this.eComponent2 = this.selectComponent('#mychart-dom-bar2');
+    wx.showLoading({
+      title: "正在加载",
+      mask: true
+    });
     this.getOption();
   },
   onShow(){
-    qurl = 'http://www.tianqiapi.com/api?version=v1&appid=23035354&appsecret=8YvlPNrz&city='+ wx.getStorageSync("cityNow");
+    qurl = 'http://www.tianqiapi.com/api?version=v1&appid=23035354&appsecret=PGgTiHl1&city='+ wx.getStorageSync("cityNow");
     this.getOption();
   },
   onPullDownRefresh: function () {

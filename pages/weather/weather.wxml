@@ -1,2 +1,4 @@
-<!--pages/weather/weather.wxml-->
-<text>pages/weather/weather.wxml</text>
+<!--index.wxml-->
+<view class="container ">
+  <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
+</view>

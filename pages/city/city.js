@@ -47,6 +47,7 @@ Page({
     var that = this;
     const eventChannel = this.getOpenerEventChannel()
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
+      //城市天气页面传送当前城市天气数据到选择城市页面，用作简报
       if(!app.globalData.cityWeather.some((ele)=>{
         return ele.cityName == data.cityName
       })){

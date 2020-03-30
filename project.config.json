@@ -24,8 +24,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
-	"appid": "wxafeae4423a948ca2",
-	"projectname": "weather",
+	"appid": "wxd5de4b64db50aff7",
+	"projectname": "miniprogram-6",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -60,6 +60,13 @@
 					"id": -1,
 					"name": "pages/city/city",
 					"pathName": "pages/city/city",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/weather/weather",
+					"pathName": "pages/weather/weather",
 					"scene": null
 				}
 			]

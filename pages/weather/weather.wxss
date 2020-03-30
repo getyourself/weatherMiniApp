@@ -1,1 +1,15 @@
-/* pages/weather/weather.wxss */
+/**index.wxss**/
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+#mychart-dom-area{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  background: #10aeb5;
+  height: 100vh;
+}
