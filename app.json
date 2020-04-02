@@ -2,7 +2,7 @@
 {
   "pages": [
     "pages/bar/index",
-    "pages/weather/weather",
+    "pages/virus/virus",
     "pages/city/city"
   ],
   "window": {
@@ -21,7 +21,7 @@
         "selectedIconPath": "./assets/weatherP.png"
       },
       {
-        "pagePath": "pages/weather/weather",
+        "pagePath": "pages/virus/virus",
         "text": "疫情",
         "iconPath":"./assets/index.png",
         "selectedIconPath":"./assets/indexP.png"
