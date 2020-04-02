@@ -2,5 +2,5 @@
   "usingComponents": {
     "ec-canvas": "../../ec-canvas/ec-canvas"
   },
-  "navigationBarBackgroundColor":"#10aeb5"
+  "navigationBarBackgroundColor":"#00bec9"
 }

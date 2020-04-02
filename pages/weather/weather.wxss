@@ -4,12 +4,120 @@ ec-canvas {
   height: 100%;
 }
 #mychart-dom-area{
+  margin-top: 40rpx;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 740rpx
 }
 .container{
   width: 100%;
-  background: #10aeb5;
-  height: 100vh;
+  background: #00bec9;
+}
+.headLine{
+  margin-top: 40rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: white;
+}
+.covidData{
+  background: white;
+  border-radius: 4rpx;
+  box-shadow: azure 0rpx -20rpx 30rpx;
+  padding-top: 40rpx;
+}
+.covidDataContainer{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.covidDataContainer>view{
+  width: 22%;
+  text-align: center;
+  margin: 20rpx 0;
+}
+.updateTime{
+  font-size: 22rpx;
+  color: #b399b3;
+  text-align: center;
+
+}
+.unitChange{
+  font-size: 20rpx;
+}
+.covidProvince{
+  margin-top: 50rpx;
+}
+
+.dataType{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  height: 50rpx;
+  line-height: 50rpx;
+  background: white;
+}
+.dataType>view{
+  width: 125rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+.provinceUnit{
+  display: flex;
+  align-items: center;
+  margin: 10rpx 0;
+  transition: all 0.5s;
+}
+.provinceUnit .proName{
+  background: #00bec9;
+  flex-grow: 0;
+  border-radius: 4rpx;
+}
+.provinceUnit>view{
+  flex-grow: 0;
+  font-size: 20rpx;
+  width: 121rpx;
+  margin: 0 2rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  background: #f3f6f8;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.showLower{
+  width: 100%;
+  margin: auto;
+  font-size: 22rpx;
+  text-align: center;
+  margin-bottom: 40rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  background: #f3f6f8;
+  border-radius: 4rpx;
+}
+.dataColor1{
+  color: #ff6a57;
+}
+.dataColor2{
+  color: #e86d48;
+}
+.dataColor3{
+  color: #ec9217;
+}
+.dataColor4{
+  color: #54549b;
+}
+.dataColor5{
+  color: #e83132;
+}
+.dataColor6{
+  color: #476da0;
+}
+.dataColor7{
+  color: #10aeb5;
+}
+.dataColor8{
+  color: #4d5054;
 }

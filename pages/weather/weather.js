@@ -3,14 +3,19 @@ import geoJson from './mapData.js';
 
 const app = getApp();
 
-/**
- * 生成1000以内的随机数
- */
-function randomData() {
-  return Math.round(Math.random() * 1000);
-}
-
 function setOption(chart, xdata) {
+  var customSettings = [];
+  var colorSet = ["white","#ffaa85","#ff7b69","#cc2929","#8c0d0d","#8c0d0d"];
+  var color;
+  xdata.forEach(function (item, index) {
+    color = colorSet[Math.floor(Math.log(item.total.nowConfirm)/Math.log(4))]
+    customSettings.push({
+        name: item.name,
+        itemStyle: {
+            areaColor: color
+        }
+    })
+  })
   const option = {
     tooltip: {
       trigger: 'item',
@@ -27,7 +32,7 @@ function setOption(chart, xdata) {
         color: '#005dff',
         fontSize: 12,
       },
-      formatter: `{b}\n现存:{c}`
+      formatter: `{b}\n现存确诊:{c}`
     },
     geo: [
       {
@@ -50,36 +55,9 @@ function setOption(chart, xdata) {
             color: "#333"
           }
         },
-        itemStyle: {
-          // 图形上的地图区域
-          normal: {
-            borderColor: "rgba(0,0,0,0.2)",
-            areaColor: "#005dff"
-          }
-        }
+        regions: customSettings
       }
     ],
-    toolbox: {
-      show: true,
-      orient: 'vertical',
-      left: 'right',
-      top: 'center',
-      feature: {
-        dataView: { readOnly: false },
-        restore: {},
-        saveAsImage: {}
-      }
-    },
-    visualMap: {
-      min: 800,
-      max: 50000,
-      text: ['High', 'Low'],
-      realtime: false,
-      calculable: true,
-      inRange: {
-        color: ['lightskyblue', 'yellow', 'orangered']
-      }
-    },
     series: [
       {
         type: 'map',
@@ -95,7 +73,7 @@ function setOption(chart, xdata) {
           }
         },
         data: xdata.map((ele,ind)=>{
-          return {name:ele.provinceShortName,value:ele.currentConfirmedCount}
+          return {name:ele.name,value:ele.total.nowConfirm}
         })
       }]
   };
@@ -111,16 +89,13 @@ Page({
     ec:{
       lazyLoad:true
     },
+    lower:true
   },
   onReady() {
   },
   onLoad(){
     this.eComponent = this.selectComponent('#mychart-dom-area');
     this.getOption();
-    wx.showLoading({
-      title: "加载中",
-      mask: true
-    });
   },
   initChart: function (xdata) {   
     this.eComponent.init((canvas, width, height) => {
@@ -138,16 +113,35 @@ Page({
   getOption: function () {        //这一步其实就要给图表加上数据
     var _this = this;
     wx.request({
-        url: 'http://api.tianapi.com/txapi/ncovcity/index?key=d89f7e3012c413d6196130dfafdd3d0f',
+        url: 'https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5',
         method: 'GET',
         header: {
             "Content-Type": "application/json"
         },
         success:function(res){
-          console.log(res)
-          _this.initChart(res.data.newslist);
+          var covid = JSON.parse(res.data.data)
+          console.log(covid)
+          _this.initChart(covid.areaTree[0].children);
+          _this.setData({
+            covidData:covid
+          })
+          wx.setStorageSync("covid", covid);
           wx.hideLoading();
         }
-    })  
+    }) 
   },
+  showLower(){
+    var _this = this
+    wx.showToast({
+      title: '加载中',
+      icon: 'none',
+      image: '',
+      duration: 1500,
+      mask: true
+    });
+    this.setData({
+      lower:!_this.data.lower
+    })
+    wx.hideToast();
+  }
 });

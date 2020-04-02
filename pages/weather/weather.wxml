@@ -1,4 +1,147 @@
 <!--index.wxml-->
-<view class="container ">
+<view class="container">
+  <view class="headLine" hover-class="none" hover-stop-propagation="false">
+    新冠肺炎疫情
+  </view>
   <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
+  <view class="covidData">
+    <view class="updateTime" hover-class="none" hover-stop-propagation="false">
+      数据更新至{{covidData.lastUpdateTime}}
+    </view>
+    <view class="covidDataContainer">
+      <view class="nowConfirm">
+        <view class="unitHeader">
+          现有确诊
+        </view>
+        <view class="dataColor1">
+          {{covidData.chinaTotal.nowConfirm}}
+        </view>
+        <view class="unitChange">
+          比昨日<text class="dataColor1">{{covidData.chinaAdd.nowConfirm>0?("+"+covidData.chinaAdd.nowConfirm):covidData.chinaAdd.nowConfirm}}</text>  
+        </view>
+      </view>
+      <view class="noInfect">
+        <view class="unitHeader">
+          无症状
+        </view>
+        <view class="dataColor2">
+          {{covidData.chinaTotal.noInfect}}
+        </view>
+        <view class="unitChange">
+          比昨日<text class="dataColor2">{{covidData.chinaAdd.noInfect>0?("+"+covidData.chinaAdd.noInfect):covidData.chinaAdd.noInfect}}</text>
+        </view>
+      </view>
+      <view class="suspect">
+        <view class="unitHeader">
+          现有疑似
+        </view>
+        <view class="dataColor3">
+          {{covidData.chinaTotal.suspect}}
+        </view>
+        <view class="unitChange">
+          比昨日<text class="dataColor3">{{covidData.chinaAdd.suspect>0?("+"+covidData.chinaAdd.suspect):covidData.chinaAdd.suspect}}</text>
+        </view>
+      </view>
+      <view class="nowSevere">
+        <view class="unitHeader">
+          现有重症
+        </view>
+        <view class="dataColor4">
+          {{covidData.chinaTotal.nowSevere}}
+        </view>
+        <view class="unitChange">
+          比昨日<text class="dataColor4">{{covidData.chinaAdd.nowSevere>0?("+"+covidData.chinaAdd.nowSevere):covidData.chinaAdd.nowSevere}}</text>
+        </view>
+      </view>
+      <view class="confirm">
+        <view class="unitHeader">
+          累计确诊
+        </view>
+        <view class="dataColor5">{{covidData.chinaTotal.confirm}}</view>
+        <view class="unitChange">
+          比昨日<text class="dataColor5">{{covidData.chinaAdd.confirm>0?("+"+covidData.chinaAdd.confirm):covidData.chinaAdd.confirm}}</text>
+        </view>
+      </view>
+      <view class="import">
+        <view class="unitHeader">
+          境外输入
+        </view>
+        <view class="dataColor6">
+          {{covidData.chinaTotal.importedCase}}
+        </view>
+        <view class="unitChange">
+          比昨日<text class="dataColor6">{{covidData.chinaAdd.importedCase>0?("+"+covidData.chinaAdd.importedCase):covidData.chinaAdd.importedCase}}</text>
+        </view>
+      </view>
+      <view class="heal">
+        <view class="unitHeader">
+          累计治愈
+        </view>
+        <view class="dataColor7">
+          {{covidData.chinaTotal.heal}}
+        </view>
+        <view class="unitChange">
+          比昨日<text class="dataColor7">{{covidData.chinaAdd.heal>0?("+"+covidData.chinaAdd.heal):covidData.chinaAdd.heal}}</text>
+        </view>
+      </view>
+      <view class="dead">
+        <view class="unitHeader">
+          累计死亡
+        </view>
+        <view class="dataColor8">
+          {{covidData.chinaTotal.dead}}
+        </view>
+        <view class="unitChange">
+          比昨日<text class="dataColor8">{{covidData.chinaAdd.dead>0?("+"+covidData.chinaAdd.dead):covidData.chinaAdd.dead}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="covidProvince">
+      <view class="dataType" hover-class="none" hover-stop-propagation="false">
+        <view>
+          疫情地区
+        </view>
+        <view>
+          新增
+        </view>
+        <view>
+          现有
+        </view>
+        <view>
+          累计
+        </view>
+        <view>
+          治愈
+        </view>
+        <view>
+          死亡
+        </view>
+      </view>
+      <block wx:for="{{covidData.areaTree[0].children}}" wx:key="name">
+        <view class="provinceUnit" hidden="{{index>8?lower:false}}">
+          <view class="proName">
+            {{item.name}}
+          </view>
+          <view class="proAdd">
+            {{item.today.confirm}}
+          </view>
+          <view class="proNow">
+            {{item.total.nowConfirm}}
+          </view>
+          <view class="proAccu">
+            {{item.total.confirm}}
+          </view>
+          <view class="proHeal">
+            {{item.total.heal}}
+          </view>
+          <view class="proDead">
+            {{item.total.dead}}
+          </view>
+        </view>
+      </block>
+      <view class="showLower" bind:tap="showLower">
+        点击{{lower?"展开":"收起"}}
+      </view>
+    </view>
+  </view>
 </view>
