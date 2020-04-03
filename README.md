@@ -23,4 +23,4 @@ ec-canvas——echarts组件
 
 体验
 ---
-https://github.com/getyourself/weatherMiniApp/blob/master/assets/qrcode.jpg
+![Image text](https://github.com/getyourself/weatherMiniApp/blob/master/assets/qrcode.jpg)
