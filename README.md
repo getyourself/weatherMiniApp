@@ -20,3 +20,7 @@ ec-canvas——echarts组件
 开发环境
 ---
 微信开发者工具(v1.02.2003312)
+
+体验
+---
+https://github.com/getyourself/weatherMiniApp/blob/master/assets/qrcode.jpg
